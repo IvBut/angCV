@@ -7,7 +7,7 @@ import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/c
 })
 export class ExperiencePageComponent implements OnInit {
 
-  private curSide:string = 'left';
+  public curSide:string = 'left';
   info = [
     {
       time: 'Oct 2019 - Apr 2020',
