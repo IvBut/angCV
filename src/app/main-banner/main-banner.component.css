@@ -1,0 +1,81 @@
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  color: var(--mainWhite);
+}
+
+.backimage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.start-section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mainWhite);
+}
+
+.end-section {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mainWhite);
+}
+
+.hidden {
+  left: 100%;
+  top:0;
+  z-index: 40;
+}
+
+.show {
+  animation: move 1s ease-in 1;
+  left: 0;
+  top: 0;
+  z-index: 50;
+}
+
+
+@keyframes move {
+  from {
+    left: 100%;
+    top:0;
+    /* animation-timing-function: ease-out; */
+  }
+  25% {
+    left: 75%;
+    top:0;
+    /* animation-timing-function: ease-in; */
+  }
+  50% {
+    left: 50%;
+    top:0;
+    /* animation-timing-function: ease-out; */
+  }
+  75% {
+    left: 25%;
+    /* animation-timing-function: ease-in; */
+  }
+  to {
+    left: 0;
+    top: 0;
+  }
+}
+
+.section-center {
+  margin: 2rem auto;
+}

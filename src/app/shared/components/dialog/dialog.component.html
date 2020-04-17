@@ -1,0 +1,30 @@
+<h2 mat-dialog-title class="title_c">
+  <span>Please send me a message</span>
+  <i class="far fa-times-circle close_c" (click)="handleClose()"></i>
+</h2>
+<!--<small>I will reply you as soon as possible</small>-->
+<form class="mat-dialog-content" [formGroup]="form">
+  <mat-form-field class="input_c">
+    <mat-label>Name*</mat-label>
+    <input matInput formControlName="sender" maxlength="25">
+    <mat-error *ngIf="form.get('sender').touched && form.get('sender').hasError('required')">Field is empty!</mat-error>
+    <mat-error *ngIf="form.get('sender').touched && form.get('sender').hasError('minlength')">Name to short!</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input_c">
+    <mat-label>Email*</mat-label>
+    <input matInput formControlName="senderEmail" type="email">
+    <mat-error *ngIf="form.get('senderEmail').touched && form.get('senderEmail').hasError('required')">Field is empty!</mat-error>
+    <mat-error *ngIf="form.get('senderEmail').touched && form.get('senderEmail').hasError('email')">Invalid email!</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input_c">
+    <mat-label>Message*</mat-label>
+    <textarea matInput formControlName="senderMessage"></textarea>
+    <mat-error *ngIf="form.get('senderMessage').touched && form.get('senderMessage').hasError('required')">Message is empty!</mat-error>
+  </mat-form-field>
+
+</form>
+<div mat-dialog-actions class="btn-wrapper">
+  <button class="btn-primary" [ngClass]="!form.valid ? 'invalid-btn': ''" [disabled]="!form.valid" type="submit" (click)="submit()">Send</button>
+</div>

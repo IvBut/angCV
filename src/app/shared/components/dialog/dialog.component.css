@@ -1,0 +1,53 @@
+mat-dialog-container {
+  overflow: visible;
+}
+
+.input_c {
+  width: 100%;
+  color: var(--mainBlack);
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.title_c {
+  position: relative;
+  text-align: center;
+}
+.title_c span {
+  color: var(--mainBlack);
+  font-weight: 500;
+}
+
+.close_c {
+  position: absolute;
+  font-size: 24px;
+  color: white;
+  right: 0;
+  transform: translateX(100%);
+  top: -200%;
+  transition: var(--mainTransition);
+  cursor: pointer;
+}
+
+.close_c:hover {
+  transform: scale(1.5) translate(50%, -50%);
+  color: var(--primaryColor);
+}
+
+.btn-wrapper {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.invalid-btn {
+  opacity: 1;
+  background: darkred;
+  cursor: not-allowed;
+  border: 1px solid darkred;
+}
+
+.invalid-btn:hover {
+  background: darkred;
+  color: var(--mainWhite);
+}

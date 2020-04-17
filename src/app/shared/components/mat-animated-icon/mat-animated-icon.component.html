@@ -1,0 +1,7 @@
+<mat-icon
+  [ngClass]="{'animate' : animate}"
+   [style.color]="animate ? colorEnd : colorStart"
+   [style.font-size.px]="fontSize"
+  (click)="toggle()"
+> {{animate ? end : start}}
+</mat-icon>

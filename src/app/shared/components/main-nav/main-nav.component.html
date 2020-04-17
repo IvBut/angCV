@@ -1,0 +1,54 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="isHandset? 'dialog' : 'navigation'"
+    [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+    position="end"
+  >
+  <mat-toolbar>
+    <div class="main-logo-wrapper">
+      <img src="/assets/images/logo.png" alt="Logo">
+    </div>
+  </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['about']" (click)="handleAbout()">About</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['skills']" (click)="handleSkills()">Skills</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['experience']" (click)="handleExperience()">Experience</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="desktop-content">
+    <mat-toolbar class="main-toolbar" (scroll)="onWindowScroll($event)" [class.scrolled]="isScrolled"  *ngIf="!(isHandset | async)!.matches">
+      <div class="main-logo-wrapper">
+        <img src="/assets/images/logo.png" *ngIf="isScrolled" alt="Logo">
+      </div>
+      <nav>
+        <ul>
+          <li routerLinkActive="active"><a [routerLink]="['about']" (click)="handleAbout()">About</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['skills']" (click)="handleSkills()">Skills</a></li>
+          <li routerLinkActive="active"><a [routerLink]="['experience']" (click)="handleExperience()">Experience</a></li>
+          <li routerLinkActive="active"><a href="#">Contact me</a></li>
+        </ul>
+      </nav>
+    </mat-toolbar>
+    <div *ngIf="(isHandset | async)!.matches" class="btn-burger-wrapper">
+      <button
+        type="button"
+        class="btn-burger"
+        aria-label="Toggle sidenav"
+        (click)="drawer.toggle()"
+      >
+        <mat-animated-icon
+          start="menu"
+          end="close"
+          colorStart="#3fd0d4" colorEnd="#3fd0d4"
+          animateFromParent="true"
+          fontSize="36"
+          [animate]="drawer.opened"></mat-animated-icon>
+      </button>
+    </div>
+  </mat-sidenav-content>
+
+
+</mat-sidenav-container>

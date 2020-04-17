@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <div class="start-section backimage" [ngStyle]="{'background-image': 'url('+ startImage + ')'}">
+  </div>
+  <div class="end-section backimage"  [ngStyle]="{'background-image': 'url('+ endImage + ')'}" [class.hidden]="hideSecondImage" [class.show]="showSecondImage">
+    <div class="section-center">
+        <h1 class="title title-wrapper" *ngIf="isAbout">
+          <span
+          typingAnimation
+          typeSpeed="15"
+          startDelay="2000"
+          hideCursorOnComplete="false"
+        >{{aboutText}}</span>
+        </h1>
+
+      <h1 class="title title-wrapper" *ngIf="isSkills">
+          <span
+            typingAnimation
+            typeSpeed="15"
+            startDelay="2000"
+            hideCursorOnComplete="false"
+          >{{skillsText}}</span>
+      </h1>
+
+      <h1 class="title title-wrapper" *ngIf="isExperience"
+
+      >
+          <span
+            typingAnimation
+            typeSpeed="12"
+            startDelay="2000"
+            hideCursorOnComplete="false"
+          >{{experienceText}}</span>
+      </h1>
+      <a  class="btn-white" (click)="openDialog()">Contact Me</a>
+    </div>
+  </div>
+</div>
+

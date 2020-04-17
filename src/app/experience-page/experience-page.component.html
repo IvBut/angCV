@@ -1,0 +1,29 @@
+<div class="section">
+  <div class="section-center">
+
+    <mgl-timeline [side]="curSide" #timelineComponent>
+      <mgl-timeline-entry *ngFor="let data of info; let i = index;" (expand)="onExpand($event,i)">
+        <mgl-timeline-entry-header>
+          <h3 #headers>{{data.time}}</h3>
+        </mgl-timeline-entry-header>
+        <mgl-timeline-entry-content>
+          <div class="content-header">
+            <div class="img-container">
+              <img src="assets/images/{{data.companyLogo}}" alt="">
+                <a href="{{data.companySite}}" target="_blank" ><mat-icon class="search-icon">search</mat-icon></a>
+            </div>
+            <div class="company-wrapper">
+              <h3>{{data.companyName}}</h3>
+            </div>
+          </div>
+          <h4>{{data.role}}</h4>
+          <p>{{data.details}}</p>
+        </mgl-timeline-entry-content>
+        <mgl-timeline-entry-dot size="10" class="custom-dot"></mgl-timeline-entry-dot>
+        {{Side}}
+      </mgl-timeline-entry>
+
+    </mgl-timeline>
+
+  </div>
+</div>

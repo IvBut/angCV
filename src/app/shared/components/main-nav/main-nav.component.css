@@ -1,0 +1,124 @@
+.sidenav-container{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: transparent;
+  z-index: 1000;
+}
+
+.main-toolbar {
+  background: transparent;
+  height: 70px;
+  transition: var(--mainTransition);
+}
+
+.scrolled{
+  background: var(--mainBlack);
+  box-shadow: 0 2px 4px -1px rgba(63, 208, 212 ,0.25);
+}
+
+.main-logo-wrapper {
+  width: 60px;
+}
+
+.main-logo-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: var(--mainTransition);
+  background: transparent;
+}
+
+.main-logo-wrapper img:hover {
+  transform: scaleX(-1);
+}
+
+.main-toolbar nav {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.main-toolbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-toolbar li {
+  margin-right: 20px;
+}
+
+.main-toolbar a {
+  color: var(--primaryColor);
+  letter-spacing: 0.1rem;
+  transition: var(--mainTransition);
+}
+.main-toolbar a:hover {
+  color: var(--mainWhite);
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(63, 208, 212 ,0.25);
+  border: solid var(--primaryColor);
+  border-width: 0 0 1px 1px;
+  border-radius: 6px;
+  background: var(--mainBlack);
+}
+
+.sidenav mat-toolbar {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 80px;
+  background: var(--mainBlack);
+}
+
+a[mat-list-item] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primaryColor);
+  font-weight: 900;
+  transition: var(--mainTransition);
+}
+
+a[mat-list-item]:hover {
+  color: var(--mainWhite);
+}
+
+a[mat-list-item].active {
+  color: var(--mainWhite);
+}
+
+.btn-burger-wrapper {
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 1rem;
+  background: transparent;
+}
+
+.btn-burger {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  background: transparent;
+}
+
+.active {
+  font-weight: bold;
+  cursor: default;
+  font-size: 2rem;
+}
+
+.active a {
+  color: white;
+}
