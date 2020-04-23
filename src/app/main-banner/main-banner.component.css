@@ -79,3 +79,13 @@
 .section-center {
   margin: 2rem auto;
 }
+
+::ng-deep .snackbar_success .mat-simple-snackbar {
+  color: var(--primaryColor);
+}
+
+::ng-deep .snackbar_error .mat-simple-snackbar {
+  color: red;
+}
+
+

@@ -13,11 +13,10 @@
 
   <mat-form-field class="input_c">
     <mat-label>Email*</mat-label>
-    <input matInput formControlName="senderEmail" type="email">
+    <input matInput formControlName="senderEmail" type="email" maxlength="35">
     <mat-error *ngIf="form.get('senderEmail').touched && form.get('senderEmail').hasError('required')">Field is empty!</mat-error>
-    <mat-error *ngIf="form.get('senderEmail').touched && form.get('senderEmail').hasError('email')">Invalid email!</mat-error>
+    <mat-error *ngIf="form.get('senderEmail').touched && form.get('senderEmail').hasError('email') || form.get('senderEmail').hasError('pattern') ">Invalid email!</mat-error>
   </mat-form-field>
-
   <mat-form-field class="input_c">
     <mat-label>Message*</mat-label>
     <textarea matInput formControlName="senderMessage"></textarea>
@@ -27,4 +26,10 @@
 </form>
 <div mat-dialog-actions class="btn-wrapper">
   <button class="btn-primary" [ngClass]="!form.valid ? 'invalid-btn': ''" [disabled]="!form.valid" type="submit" (click)="submit()">Send</button>
+</div>
+
+<div class="spinner-overlay" *ngIf="showSpinner">
+  <div class="spinner-center">
+    <mat-spinner diameter="48"></mat-spinner>
+  </div>
 </div>

@@ -101,7 +101,7 @@ a[mat-list-item].active {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 0 1rem;
+  padding: 0 0.75rem;
   background: transparent;
 }
 

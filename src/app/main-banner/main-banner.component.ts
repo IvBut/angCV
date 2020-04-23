@@ -1,8 +1,8 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
 import {RouterMessage} from '../services/routerMessage.service';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBarConfig} from '@angular/material';
 import {DialogComponent} from '../shared/components/dialog/dialog.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-main-banner',
@@ -23,10 +23,15 @@ export class MainBannerComponent implements OnInit {
   isExperience: boolean = false;
   experienceText: string = '';
 
-  constructor(private routerMessage: RouterMessage, public dialog: MatDialog) { }
+  constructor(private routerMessage: RouterMessage, public dialog: MatDialog, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     let curentPath = this.getCurentRoute();
+    if (curentPath !=='/about' && curentPath !== '/skills' && curentPath!=='/experience'){
+        curentPath = '/about';
+    }
+
+    console.log('Path ', curentPath);
     this.startImage = `/assets/images${curentPath}.jpg`;
     this.endImage = `/assets/images${curentPath}.jpg`;
     this.outputText;
@@ -57,14 +62,14 @@ export class MainBannerComponent implements OnInit {
         this.isAbout = true;
         break;
       case '/skills':
-        result = `This is my skills  I\'m work`;
+        result = `\u00ABAnyone who stops learning is old, whether at twenty or eighty\u00BB ${String.fromCharCode(0x0097)} Henry Ford`;
         this.skillsText = result;
         this.isAbout = false;
         this.isExperience = false;
         this.isSkills = true;
         break;
       case '/experience':
-        result = `\u00ABExperience is one thing you can't get for nothing\u00BB \u0097 Oscar Wilde`;
+        result = `\u00ABExperience is one thing you can't get for nothing\u00BB ${String.fromCharCode(0x0097)} Oscar Wilde`;
         this.experienceText = result;
         this.isAbout = false;
         this.isSkills = false;
@@ -84,9 +89,29 @@ export class MainBannerComponent implements OnInit {
       width: '75vw',
       maxWidth: '600px',
       minHeight: '400px',
+      maxHeight: '600px',
       hasBackdrop: true,
       closeOnNavigation: true,
-      disableClose: true
+      disableClose: true,
+      panelClass: 'dialog-overlay'
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result === 'success'){
+        this.snackBar.open('Thank you for your message! I will reply as soon as possible.', '', this.createSnackbar('snackbar_success'));
+      }else if (result === 'error'){
+        this.snackBar.open('Something goes wrong, please try again later =(', '', this.createSnackbar('snackbar_error'));
+      }
+    });
+  }
+
+  private createSnackbar(snackBarClass: string): MatSnackBarConfig{
+    const config = new MatSnackBarConfig();
+    config.duration = 5000;
+    config.verticalPosition = 'bottom';
+    config.horizontalPosition = 'center';
+    config.panelClass = snackBarClass;
+    return config;
   }
 }

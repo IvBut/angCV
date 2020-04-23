@@ -7,7 +7,9 @@ import {
   MatIconModule, MatInputModule,
   MatListModule,
   MatMenuModule,
+  MatProgressSpinnerModule,
   MatSidenavModule,
+  MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import {BrowserModule} from '@angular/platform-browser';
@@ -16,6 +18,7 @@ import {MglTimelineModule} from 'angular-mgl-timeline';
 import { FooterComponent } from './components/footer/footer.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MainBannerComponent} from '../main-banner/main-banner.component';
 
 
 
@@ -35,7 +38,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   exports: [
     HttpClientModule,
@@ -54,9 +59,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DialogComponent,
     MatDialogModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MainBannerComponent
   ],
-  declarations: [FooterComponent, DialogComponent]
+  declarations: [FooterComponent, DialogComponent, MainBannerComponent]
 })
 export class SharedModule {
 

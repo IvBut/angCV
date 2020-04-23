@@ -2,9 +2,10 @@ const  express = require('express');
 const nodemailer = require('nodemailer');
 const  router = express.Router();
 
-router.post('/send', (req, res) => {
+router.post('/send',  (req, res) => {
     if (!req.header('SendEmail')) res.status(500).json({data: 'Invalid request'});
     console.log(req.body);
+    console.log(req.headers);
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -25,8 +26,10 @@ router.post('/send', (req, res) => {
 
     transporter.sendMail(mailOptions,(err, data) => {
       if (err) {
+        console.log('Erorr')
         res.json(err);
       } else {
+        console.log('Data')
         res.json(data);
       }
     });

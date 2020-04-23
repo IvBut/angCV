@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-experience-page',
@@ -55,11 +56,16 @@ export class ExperiencePageComponent implements OnInit {
   @ViewChildren('headers') headers: QueryList<any>;
 
 
-  constructor() { }
+  constructor(private title:Title, private meta: Meta) { }
 
 
   ngOnInit() {
-
+    this.title.setTitle('Work Experience');
+    this.meta.updateTag(
+      {name:'description',
+        content: 'CV Work Experience job Ivan Butko Belarus Grodno developer development salesforce кухни ZOV success-craft резюме Иван Бутько разработчик Гродно Беларусь Сэйлсфорс салесфорсе'
+      });
+    this.meta.updateTag({name: 'keywords',content:'angular salesforce CV development node js Grodno Belarus salesfoce-developer резюме frontend вакансии работа разработка Иван Бутько сайт'});
   }
 
 

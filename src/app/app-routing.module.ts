@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'about', pathMatch: 'full'},
   {path: 'about', component: AboutPageComponent},
   {path: 'skills', component: SkillsPageComponent},
-  {path: 'experience', component: ExperiencePageComponent}
+  {path: 'experience', component: ExperiencePageComponent},
+  { path: '**', component: AboutPageComponent }
 
 ];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about-page',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private title: Title, private meta: Meta) { }
 
   ngOnInit() {
+    this.title.setTitle('About');
+    this.meta.updateTag(
+      {name:'description',
+        content: 'CV ivan butko heroku developer salesforce Belarus Hrodna job frontend about work'
+      });
+    this.meta.updateTag({name:'keywords', content:'angular salesforce CV development node js Grodno Hrodna Belarus salesfoce-developer work job vacancy about me  резюме frontend вакансии работа разработка Иван Бутько сайт'});
   }
 
   get dateOfBirth() {

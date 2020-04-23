@@ -3,6 +3,12 @@
   background: #222;
 }
 
+h3 {
+  color: var(--mainWhite);
+  text-align: center;
+  font-size: 1rem;
+}
+
 .wrapper {
   text-align: center;
 }
